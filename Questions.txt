@@ -1,0 +1,82 @@
+RESPOSTAS
+
+7- SELECT t01.nome, t02.veiculo FROM cliente t01 
+INNER JOIN venda t02
+on t01.id_cliente = t02.cliente;
+
+8- SELECT * FROM veiculo t01 
+LEFT JOIN venda t02 
+ON t01.id_veiculo = t02.veiculo 
+WHERE t02.veiculo IS null;
+
+
+9- SELECT t01.nome, t03.nome, t03.valor FROM cliente t01 
+INNER JOIN venda t02 
+ON t01.id_cliente = t02.cliente 
+INNER JOIN veiculo t03 
+ON t02.veiculo = t03.id_veiculo
+WHERE t03.valor > '100.000';
+
+10- SELECT t01.nome, t03.nome, t03.valor FROM cliente t01 
+INNER JOIN venda t02 
+ON t01.id_cliente = t02.cliente 
+INNER JOIN veiculo t03 
+ON t02.veiculo = t03.id_veiculo
+WHERE t01.nome = 'Danilo';
+
+11- SELECT t01.nome, t03.nome, t03.valor, t03.valor - (t03.valor * 0.15) AS desconto FROM cliente t01 
+INNER JOIN venda t02 
+ON t01.id_cliente = t02.cliente 
+INNER JOIN veiculo t03
+ON t02.veiculo = t03.id_veiculo
+WHERE t01.nome = 'Danilo';
+
+12- SELECT t01.nome, t03.nome, t03.valor FROM cliente t01 
+INNER JOIN venda t02 
+ON t01.id_cliente = t02.cliente 
+INNER JOIN veiculo t03 
+ON t02.veiculo = t03.id_veiculo
+WHERE t01.nome = 'Danilo' AND t03.valor < '70.000';
+
+13- SELECT t01.nome, t03.nome, t03.valor FROM cliente t01 
+INNER JOIN venda t02 
+ON t01.id_cliente = t02.cliente 
+INNER JOIN veiculo t03 
+ON t02.veiculo = t03.id_veiculo
+WHERE t01.nome != 'Danilo';
+
+14- SELECT t01.nome, t03.nome, t03.valor FROM cliente t01 
+INNER JOIN venda t02 
+ON t01.id_cliente = t02.cliente 
+INNER JOIN veiculo t03 
+ON t02.veiculo = t03.id_veiculo
+WHERE t01.nome != 'Danilo'
+ORDER BY t03.valor ASC;
+
+15- SELECT t01.nome, t03.nome, t03.valor FROM cliente t01 
+INNER JOIN venda t02 
+ON t01.id_cliente = t02.cliente 
+INNER JOIN veiculo t03 
+ON t02.veiculo = t03.id_veiculo
+WHERE t01.nome != 'Danilo'
+ORDER BY t03.valor DESC;
+
+16- SELECT t01.nome, t03.nome, t03.valor FROM cliente t01 
+INNER JOIN venda t02 
+ON t01.id_cliente = t02.cliente 
+INNER JOIN veiculo t03 
+ON t02.veiculo = t03.id_veiculo
+WHERE t01.nome != 'Danilo'
+ORDER BY t03.valor DESC
+LIMIT 3;
+
+17- SELECT DISTINCT veiculo.nome FROM veiculo;
+
+18- Ele não consegue deletar a tabela veiculo, por que a tabela veiculo é referencia para a tabela vendas,
+a tabela vendas tem uma foreign key de veiculo ou seja se deletar a tabela veiculo a tabela vendas não conseguira acessar a foreign key,
+por isso não foi possivel deletar.
+
+19- é possivel deletar a tabela venda com o comando TRUNCATE TABLE pois os dados dela não são referencias para outras tabelas,
+sendo assim os dados foram deletados.
+
+20- feita
